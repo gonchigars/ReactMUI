@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import ButtonAppBar from "./AppBar";
 import PermanentDrawerLeft from "./PermanentDrawer";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
+import store from "./store/store"; // Change this line
 import Counter from "./components/usestatecounterbeautified";
 import MovieList from "./components/MovieList";
 

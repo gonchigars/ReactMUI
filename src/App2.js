@@ -1,17 +1,24 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { store } from "./store/apistore";
 import { Counter } from "./components/Counter";
 
-function App() {
+function App2() {
   return (
-    <Provider store={store}>
-      <div className="App">
-        <h1>Redux Counter App</h1>
-        <Counter />
-      </div>
-    </Provider>
+    <div
+      className="App"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh", // This ensures the div takes up the full viewport height
+        width: "100%",
+        textAlign: "center",
+      }}
+    >
+      <h1>Redux Counter App</h1>
+      <Counter />
+    </div>
   );
 }
 
-export default App;
+export default App2;
