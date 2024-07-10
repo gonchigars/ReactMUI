@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCountAsync } from "../store/counterSlice";
 
-export function Counter() {
+export function Counterr() {
   const count = useSelector((state) => state.counter.value);
   const status = useSelector((state) => state.counter.status);
   const error = useSelector((state) => state.counter.error);
