@@ -3,10 +3,19 @@ import { Provider } from "react-redux";
 import { store } from "./store/apistore";
 import { Counter } from "./components/Counter";
 
-function App() {
+function App2() {
+  const appStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh', // Full viewport height
+    textAlign: 'center',
+    flexDirection: 'column',
+  };
+
   return (
     <Provider store={store}>
-      <div className="App">
+      <div style={appStyle}>
         <h1>Redux Counter App</h1>
         <Counter />
       </div>
@@ -14,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default App2;
