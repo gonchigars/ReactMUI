@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/apistore";
 import { Counter } from "./components/Counter";
 
-function App() {
+function App2() {
   return (
     <Provider store={store}>
       <div className="App">
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default App2;
