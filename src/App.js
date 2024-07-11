@@ -3,8 +3,9 @@ import { Box } from "@mui/material";
 import ButtonAppBar from "./AppBar";
 import PermanentDrawerLeft from "./PermanentDrawer";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
-import Counter from "./components/usestatecounterbeautified";
+import {store} from "./store/apistore";
+//import { store } from "./store/store";
+import {Counter} from "./components/Counter";
 import MovieList from "./components/MovieList";
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
             alignItems: "left",
             height: "calc(100vh - 64px)", // Full viewport height minus AppBar height
           }}
-        >
+
+        >  <Counter/>
           <MovieList />
         </Box>
       </Box>
