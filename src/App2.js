@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { store } from "./store/apistore";
+import { store } from "./store/store";
 import { Counter } from "./components/Counter";
 
 function App2() {
@@ -21,9 +21,9 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh', // Full viewport height
-    backgroundColor: '#f0f0f0', // Light background color
+    alignItems: '',
+    height: '100vh', 
+    backgroundColor: '#f0f0f0', 
     textAlign: 'center',
   },
   counterContainer: {

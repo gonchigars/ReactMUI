@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPopularMovies } from "../store/moviesSlice";
 import {
@@ -8,17 +8,32 @@ import {
   CardContent,
   Typography,
   CircularProgress,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Button,
 } from "@mui/material";
 
 const MovieList = () => {
   const dispatch = useDispatch();
   const { popularMovies, status, error } = useSelector((state) => state.movies);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     if (status === "idle") {
       dispatch(getPopularMovies());
     }
   }, [status, dispatch]);
+
+  const handleCardClick = (movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const handleClose = () => {
+    setSelectedMovie(null);
+  };
 
   if (status === "loading") {
     return <CircularProgress />;
@@ -33,28 +48,60 @@ const MovieList = () => {
   }
 
   return (
-    <Grid container spacing={3}>
-      {popularMovies.map((movie) => (
-        <Grid item xs={12} sm={6} md={4} lg={2} key={movie.id}>
-          <Card>
-            <CardMedia
-              component="img"
-              height="140"
-              image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                {movie.title}
+    <div>
+      <Grid container spacing={3}>
+        {popularMovies.map((movie) => (
+          <Grid item xs={12} sm={6} md={4} lg={2} key={movie.id}>
+            <Card onClick={() => handleCardClick(movie)}>
+              <CardMedia
+                component="img"
+                height="140"
+                image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h6" component="div">
+                  {movie.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Release Date: {movie.release_date}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+
+      {selectedMovie && (
+        <Dialog
+          open={!!selectedMovie}
+          onClose={handleClose}
+          aria-labelledby="movie-details-title"
+        >
+          <DialogTitle id="movie-details-title">{selectedMovie.title}</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`}
+                alt={selectedMovie.title}
+                style={{ width: '100%' }}
+              />
+              <Typography variant="body2" color="text.secondary" style={{ marginTop: '10px' }}>
+                Release Date: {selectedMovie.release_date}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Release Date: {movie.release_date}
+              <Typography variant="body1" style={{ marginTop: '10px' }}>
+                {selectedMovie.overview}
               </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+      )}
+    </div>
   );
 };
 
