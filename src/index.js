@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+<<<<<<< HEAD
+=======
+import reportWebVitals from "./reportWebVitals";
+>>>>>>> 4eacd0acb14ded1c53256e619cc133f414889347
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

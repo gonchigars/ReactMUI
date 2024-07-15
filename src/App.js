@@ -4,7 +4,11 @@ import ButtonAppBar from "./AppBar";
 import PermanentDrawerLeft from "./PermanentDrawer";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+<<<<<<< HEAD
 
+=======
+import {Counter} from "./components/Counter";
+>>>>>>> 4eacd0acb14ded1c53256e619cc133f414889347
 import MovieList from "./components/MovieList";
 
 function App() {
@@ -26,6 +30,7 @@ function App() {
             height: "calc(100vh - 64px)", // Full viewport height minus AppBar height
           }}
         >
+          <Counter />
           <MovieList />
         </Box>
       </Box>
