@@ -4,7 +4,7 @@ import ButtonAppBar from "./AppBar";
 import PermanentDrawerLeft from "./PermanentDrawer";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import Counter from "./components/usestatecounterbeautified";
+
 import MovieList from "./components/MovieList";
 
 function App() {
