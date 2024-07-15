@@ -26,15 +26,19 @@ const styles = {
     backgroundColor: '#f0f0f0', 
     textAlign: 'center',
   },
+  spacer:{
+    flex: 1,
+  },
   counterContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     padding: '20px',
     border: '2px solid #ccc',
-    borderRadius: '15px', // Rounded corners
-    backgroundColor: '#fff', // White background for the counter
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Subtle shadow
+    borderRadius: '15px',
+    backgroundColor: '#fff', 
+    boxShadow:'0 4px 8px rgba(0, 0, 0, 0.1)',
+    marginBottom:'20px',
   },
 };
 
