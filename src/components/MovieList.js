@@ -52,20 +52,25 @@ const MovieList = () => {
       <Grid container spacing={3}>
         {popularMovies.map((movie) => (
           <Grid item xs={12} sm={6} md={4} lg={2} key={movie.id}>
-            <Card onClick={() => handleCardClick(movie)}>
+            <Card
+              onClick={() => handleCardClick(movie)}
+              style={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
               <CardMedia
                 component="img"
-                height="140"
+                height="300"
                 image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h6" component="div">
-                  {movie.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Release Date: {movie.release_date}
-                </Typography>
+              <CardContent style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div>
+                  <Typography gutterBottom variant="h6" component="div">
+                    {movie.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Release Date: {movie.release_date}
+                  </Typography>
+                </div>
               </CardContent>
             </Card>
           </Grid>
